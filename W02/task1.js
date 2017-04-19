@@ -5,21 +5,33 @@ Vec3 = function(x,y,z)
    this.z = z;
 }
 
-Vec3.prototype.min = function()
+Vec3.prototype.ArrayOfTriangle = function(v0,v1,v2)
 {
-   var min = this.x;
-   if(min>=this.y){min = this.y;}  
-   if(min>=this.z){min = this.z;}
-   return min;
+   var v01 = v1.makevec(v0); 
+   var v02 = v2.makevec(v0);
+
+   var v0101 = v1.abs;
+   var v0201 = v2.abs;
+
+   var v0102 = v1.abs(v2);
+ 
+   return Math.sqrt(v0101*v0202-v0102*v0102)
 }
-Vec3.prototype.max = function()
+
+Vec3.prototype.makevec = function(v)
 {
-   var max = this.x;
-   if(max<=this.y){max = this.y;}  
-   if(max<=this.z){max = this.z;}
-   return max;
+   this.x -= v.x;
+   this.y -= v.y;
+   this.z -= v.z;
+   return this;
 }
-Vec3.prototype.mid = function()
+
+Vec3.prototype.abs = function()
 {
-   return (this.x+this.y+this.z)-(this.max()+this.min())
+   return this.x*this.x+this.y*this.y+this.z*this.z
+}
+
+Vec3.prototype.innerprod = function(v)
+{
+   return this.x*v.x+this.y*v.y+this.z*v.z
 } 
