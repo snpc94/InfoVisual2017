@@ -1,5 +1,4 @@
 
-
 function main()
 {
     var width = 500;
@@ -109,7 +108,7 @@ function main()
     function loop()
     {
         requestAnimationFrame( loop );
-        triangle.rotation.x += 0.001;
+        triangle.rotation.x += 0.002;
         triangle.rotation.y += 0.004;
         renderer.render( scene, camera );
 	document.addEventListener('mousedown',mouse_down_event);

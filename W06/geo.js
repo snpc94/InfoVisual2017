@@ -1,3 +1,4 @@
+
 function main()
 {
     var width = 500;
@@ -42,16 +43,16 @@ function main()
     ];
 
     var faces =[
-	[1,0,3],
-	[1,3,2],
-	[5,1,2],
-	[5,2,6],
-	[4,5,6],
-	[4,6,7],
-	[0,4,7],
-	[0,7,3],
-	[4,0,1],
-	[4,1,5],
+	[1,3,0],
+	[1,2,3],
+	[5,2,1],
+	[5,6,2],
+	[4,6,5],
+	[4,7,6],
+	[0,7,4],
+	[0,3,7],
+	[4,1,0],
+	[4,5,1],
 	[7,3,2],
 	[7,2,6]
     ];
@@ -82,9 +83,11 @@ function main()
     
     var material = new THREE.MeshBasicMaterial();
     material.vertexColors = THREE.FaceColors;
-    material.side = THREE.DoubleSide;
+    //material.side = THREE.DoubleSide;
+    
     geometry.faces[0].color = new THREE.Color(1,0,0);
     geometry.faces[1].color = new THREE.Color(0,1,0);
+
     geometry.faces[2].color = new THREE.Color(0,0,1);
     geometry.faces[3].color = new THREE.Color(1,1,0);
     geometry.faces[4].color = new THREE.Color(1,0,1);
@@ -95,16 +98,19 @@ function main()
     geometry.faces[9].color = new THREE.Color(0.5,0.5,0);
     geometry.faces[10].color = new THREE.Color(0.5,0,0.5);
     geometry.faces[11].color = new THREE.Color(0.75,0,0);
+    
     var triangle = new THREE.Mesh( geometry, material );
     scene.add( triangle );
 
     loop();
 
+    
     function loop()
     {
         requestAnimationFrame( loop );
-        triangle.rotation.x += 0.001;
-        triangle.rotation.y += 0.001;
+        triangle.rotation.x += 0.002;
+        triangle.rotation.y += 0.004;
         renderer.render( scene, camera );
     }
+
 }
