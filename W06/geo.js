@@ -110,6 +110,7 @@ function main()
         requestAnimationFrame( loop );
         triangle.rotation.x += 0.002;
         triangle.rotation.y += 0.004;
+        triangle.rotation.z += 0.001;
         renderer.render( scene, camera );
     }
 
